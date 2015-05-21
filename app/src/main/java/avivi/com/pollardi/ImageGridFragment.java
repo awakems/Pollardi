@@ -20,6 +20,7 @@ import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +31,6 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -98,16 +98,46 @@ public class ImageGridFragment extends AbsListViewBaseFragment {
         proBar.setVisibility(View.VISIBLE);
         proBar.animate();
 
-        String partpath = getActivity().getIntent().getExtras().getString("ID");
-        String prefix = getActivity().getIntent().getExtras().getString("prefix");
+        final String partpath = getActivity().getIntent().getExtras().getString("ID");
+        final String prefix = getActivity().getIntent().getExtras().getString("prefix");
 
         if(isInternetAvailable(getActivity().getApplicationContext()))
         {
             //inet on
-            new DownloadImageTask(getActivity().getApplicationContext(),prefix ,partpath).execute();
-//            Toast toast = Toast.makeText(getActivity().getApplicationContext(), "inet +++++"  , Toast.LENGTH_SHORT);
-//            toast.show();
-            System.out.println("after Post exec!!!!");
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Realm real = Realm.getInstance(getActivity().getApplicationContext());
+
+                    if (hasActiveInternetConnection(getActivity().getApplicationContext())){
+                        new DownloadImageTask(getActivity().getApplicationContext(),prefix ,partpath).execute();
+                        System.out.println("after Post exec!!!!");
+                    }else{
+                        RealmResults<RealmGridCol> query = real.where(RealmGridCol.class).findAll();
+                        collresultlist = query.where().equalTo("id_grid", partpath).findAll();
+                        RealmResults<RealmGridCol> result = collresultlist.where().equalTo("has_det_pic", false).findAll();
+
+
+                        for (RealmGridCol x : result) {
+                            list.add(x.getUrl_photo());
+                            list_names.add(x.getName_t());
+                            System.out.println("<<<<<<" + x.getUrl_photo());
+                        }
+                        imageUrls = list.toArray(new String[list.size()]);
+                        names_towar = list_names.toArray(new String[list_names.size()]);
+                        ((GridView) listView).post(new Runnable() {
+                            @Override
+                            public void run() {
+                                ((GridView) listView).setAdapter(new ImageAdapter(getActivity()));
+                            }
+                        });
+                    }
+                    real.close();
+                }
+            }).start();
+//            ((GridView) listView).setAdapter(new ImageAdapter(getActivity()));
+
+
         } else {
             //when inet off
             RealmResults<RealmGridCol> query = realm.where(RealmGridCol.class).findAll();
@@ -225,6 +255,28 @@ public class ImageGridFragment extends AbsListViewBaseFragment {
         TextView gridtext;
 	}
 
+    public static boolean hasActiveInternetConnection(Context context) {
+        if (isInternetAvailable(context)) {
+            try {
+                HttpURLConnection urlc = (HttpURLConnection) (new URL("http://ya.ru").openConnection());
+                urlc.setRequestProperty("User-Agent", "Test");
+                urlc.setRequestProperty("Connection", "close");
+                urlc.setConnectTimeout(1000);
+                urlc.connect();
+                if (urlc.getResponseCode() == 200){
+                    return true;
+                }else {return false;}
+
+            } catch (IOException e) {
+                Log.e("LOG_TAG", "Error checking internet connection", e);
+                return false;
+            }
+        } else {
+            Log.d("LOG_TAG", "No network available!");
+        }
+        return false;
+    }
+
 
     public static boolean isInternetAvailable(Context context) {
 
@@ -244,14 +296,14 @@ public class ImageGridFragment extends AbsListViewBaseFragment {
 
             // if connected with internet
 
-            Toast.makeText(context, " Connected ", Toast.LENGTH_LONG).show();
+//            Toast.makeText(context, " Connected ", Toast.LENGTH_LONG).show();
             return true;
 
         } else if (
                 connec.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.DISCONNECTED ||
                         connec.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.DISCONNECTED  ) {
 
-            Toast.makeText(context, " Not Connected ", Toast.LENGTH_LONG).show();
+//            Toast.makeText(context, " Not Connected ", Toast.LENGTH_LONG).show();
             return false;
         }
         return false;
@@ -404,12 +456,6 @@ public class ImageGridFragment extends AbsListViewBaseFragment {
             super.onPostExecute(strings);
         }
 
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-//            progressDialog = ProgressDialog.show(getActivity().getBaseContext(), "Wait", "Downloading...");
-
-        }
     }
 
 }
