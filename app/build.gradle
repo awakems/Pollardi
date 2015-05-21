@@ -1,0 +1,39 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        applicationId "avivi.com.pollardi"
+        minSdkVersion 14
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+ //   compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:+'
+    compile files('libs/jsoup-1.8.1.jar')
+    compile files('libs/universal-image-loader-1.9.4-SNAPSHOT.jar')
+    compile 'io.realm:realm-android:0.80.1'
+ //   compile files('libs/android-support-v4.jar')
+    compile('com.google.android.gms:play-services:6.+') {
+        exclude group: "com.google.android.gms.analytics"
+        exclude group: "com.google.android.gms.games"
+        exclude group: "com.google.android.gms.plus"
+        exclude group: "com.google.android.gms.drive"
+        exclude group: "com.google.android.gms.ads"
+    }
+
+}
+

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/gradient">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton"
+            android:src="@drawable/shape1_1"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_weight="0.14"
+            android:layout_marginTop="8dp"
+            android:onClick="onFBClick" />
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton2"
+            android:src="@drawable/shape2_1"
+
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_weight="0.14"
+            android:layout_marginTop="8dp"
+            android:onClick="onTwitterClick" />
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton3"
+            android:src="@drawable/shape3_1"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_weight="0.14"
+            android:layout_marginTop="8dp"
+            android:onClick="onVKClick" />
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton4"
+            android:src="@drawable/shape4_1"
+
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_weight="0.14"
+            android:layout_marginTop="8dp"
+            android:onClick="onGoogleClick" />
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton5"
+            android:src="@drawable/shape5_1"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_weight="0.14"
+            android:layout_marginTop="8dp"
+            android:onClick="onPinClick" />
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton6"
+            android:src="@drawable/instagram"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_weight="0.14"
+            android:layout_marginTop="8dp"
+            android:onClick="onInsClick" />
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton7"
+            android:src="@drawable/youtube"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_weight="0.14"
+            android:layout_marginTop="8dp"
+            android:onClick="onYoutClick" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="© 2015 POLLARDI FASHION GROUP"
+        android:id="@+id/textView"
+        android:layout_margin="8dp"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

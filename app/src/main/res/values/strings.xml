@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="menu_items">
+        <item>Коллекции</item>
+        <item>Аксессуары</item>
+        <item>Поиск магазинов</item>
+        <item>Сотрудничество</item>
+        <item>Новости</item>
+        <item>О нас</item>
+        <item>Контакты</item>
+    </string-array>
+
+    <string name="app_name">Pollardi fashion group</string>
+    <string name="hello_world">З А С Т А В К А     ЛОГО</string>
+    <string name="action_settings">Settings</string>
+    <string name="about_us">О нас</string>
+    <string name="about_us_text">История бренда Pollardi началась в 2001 году. Именно тогда в испанском городе Ла-Баньеса появилось небольшое ателье по пошиву свадебных и вечерних нарядов. Его владельцами была группа талантливых дизайнеров и портных, только что покинувших стены столичного вуза. Оригинальный дизайн изделий, соответствие модным тенденциям и безукоризненное исполнение обеспечили ателье известность в узком кругу местной элиты. Но долгое время студия оставалась неизвестной в масштабах страны, и, в первую очередь, из-за отсутствия финансовой поддержки. Ключевым моментом в истории ателье Pollardi стало неожиданное знакомство с молодыми инвесторами с Восточной Европы. Они увидели в этом испанском ателье свадебных платьев большую перспективу. И предложили начать международную экспансию. Талант и креативное мышление, умноженные на финансовую поддержку, дали невиданный результат: в кратчайшие сроки бренд Pollardi стал известен во многих странах, а особенно он полюбился невестам Восточной Европы! В 2010 году произошел очередной важный этап в истории Pollardi fashion group: было принято решение перенести производство в Восточную Европу. Сегодня более 300 человек, прошедших предварительное обучение в Испании, работают в команде Pollardi fashion group. Высокое качество всех изготавливаемых свадебных товаров гарантируется использованием новейшего компьютерного оборудования, постоянными стажировками персонала у первоклассных конструкторов со всего мира, соблюдением всех норм производства согласно европейским стандартам. Фирменным знаком подвенечных нарядов Pollardi fashion group стала ручная работа в малоизвестных техниках. Например, технику расшива камнями дизайнеры фабрики Pollardi переняли у индийских портных. Чтобы научится чувствовать ткань и камни, как восточные мастера, представители Pollardi ездили на длительное обучение в Индию. Там же они постигли и традиционную технику росписи по ткани батик, став первыми, кто начал ее применять к созданию подвенечных нарядов. Но на этом дизайнеры из Pollardi fashion group не останавливаются: в их планах достичь вершин мировой славы! Для этого бренд внедряет все самые прогрессивные технологии, при помощи которых возможно соединять традиционные ремесла и современные темпы производительности. Выбирая Pollardi fashion group, наши клиенты и партнеры выбирают высокое качество, соответствие ведущим тенденциям моды, а также полную ответственность за каждую деталь, камушек и строчку в подвенечном наряде! Потому что мы не соревнуемся с другими. Мы просто стремимся к совершенству.</string>
+    <string name="no_det_text_toast">Нет описания</string>
+
+    <!-- Activity Contacts -->
+
+    <string name="tel">тел.</string>
+    <string name="mail">E-mail:</string>
+
+    <string-array name="name_titles">
+        <item>Наш главный офис: Испания, Мадрид</item>
+        <item>Отдел по работе с клиентами в Европе</item>
+        <item>Отдел по работе с клиентами в Германии, Мюнхен</item>
+        <item>Отдел по работе с клиентами в РФ, Москва</item>
+        <item>Отдел по работе с клиентами в Украине, Киев</item>
+        <item>Отдел по работе с клиентами в Канаде, Оттава</item>
+        <item>Отдел по работе с клиентами в США, Нью Йорк</item>
+    </string-array>
+
+    <string-array name="phones">
+        <item>+34911980457</item>
+        <item>+34911980634</item>
+        <item>+498007241729</item>
+        <item>+380938662949</item>
+        <item>+380938662949</item>
+        <item>empty</item>
+        <item>empty</item>
+    </string-array>
+
+    <string-array name="emails">
+        <item>spain@dariakarlozi.com</item>
+        <item>europe@dariakarlozi.com</item>
+        <item>germany@dariakarlozi.com</item>
+        <item>info@pollardi.com</item>
+        <item>info@pollardi.com</item>
+        <item>canada@pollardi.com</item>
+        <item>usa@pollardi.com</item>
+    </string-array>
+
+    <string name="main_spain_office">Наш главный офис: Испания, Мадрид</string>
+    <string name="email_spain">spain@dariakarlozi.com</string>
+    <string name="phone_spain">+3 491 198 04 57</string>
+
+    <string name="europe_office">asdasda</string>
+    <string name="email_europe">asdasd</string>
+    <string name="phone_europe">asd</string>
+
+
+
+
+
+
+
+    <!-- Activity titles -->
+
+    <string name="ac_name_image_grid">Accessories</string>
+    <string name="ac_name_image_pager">Collection</string>
+    <!-- Labels -->
+    <string name="label_examples">Examples</string>
+    <string name="button_image_list">ListView</string>
+    <string name="button_image_grid">GridView</string>
+    <string name="button_image_pager">ViewPager</string>
+    <string name="button_image_gallery">Gallery</string>
+    <string name="button_list_and_grid">ViewPager (ListView + GridView)</string>
+
+
+    <string name="title_list">List</string>
+    <string name="title_grid">Grid</string>
+
+    <string name="menu_item_clear_memory_cache">Clear memory cache</string>
+    <string name="menu_item_clear_disc_cache">Clear disc cache</string>
+    <string name="menu_item_pause_on_scroll">Pause on scroll</string>
+    <string name="menu_item_pause_on_fling">Pause on fling</string>
+
+    <!-- Content descriptions -->
+    <string name="descr_image">Image</string>
+
+
+</resources>
